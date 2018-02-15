@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import {
   StyleSheet,
-  Text,
   ScrollView,
   View,
 } from 'react-native';
@@ -10,6 +9,7 @@ import 'config/DevToolsConfig';
 import 'config/ReactotronConfig';
 
 import Post from 'components/Post';
+import Header from 'components/Header'
 
 export default class App extends Component {
 
@@ -40,18 +40,14 @@ export default class App extends Component {
   render() {
     return (
     <View style={ styles.main }>
-      <View style={ styles.mainHeader }>
-          <Text style={ styles.textHeader }>
-            {this.state.nameApp}
-          </Text>
-      </View>
+      <Header title={ this.state.nameApp } />
       <View style={ styles.viewCenter }>
         <ScrollView styles={ styles.contentContainer }>
           { this.state.posts.map(post => (
-            <Post key={post.id}
-                  title={post.title}
-                  author={post.author}
-                  description={post.description} />
+            <Post key={ post.id }
+                  title={ post.title }
+                  author={ post.author }
+                  description={ post.description } />
           )) }
         </ScrollView>
       </View>
@@ -80,16 +76,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     paddingVertical: 20,
-  },
-  mainHeader: {
-    justifyContent: 'center',
-    alignItems: 'center',
-    height: 60,
-    backgroundColor: 'white',
-    paddingTop: 20,
-  },
-  textHeader: {
-    fontSize: 18,
   },
 });
 
