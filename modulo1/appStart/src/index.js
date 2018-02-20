@@ -4,7 +4,6 @@ import {
   Text,
   View,
   Button,
-  PlatForm,
 } from 'react-native';
 
 import 'config/DevToolsConfig';
